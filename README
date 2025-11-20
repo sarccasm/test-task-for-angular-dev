@@ -1,0 +1,20 @@
+# My Solution
+
+This is my implementation of the Angular test task.
+
+## How to run
+1. `npm install`
+2. `set NODE_OPTIONS=--openssl-legacy-provider` (Windows)
+3. `npm start`
+4. Open http://localhost:4200/projects
+
+## Implemented
+- Lazy-loaded ProjectsModule
+- GitHub repositories loading for user `sarccasm`
+- AddUsername pipe
+- Weather mock data added to page bottom
+- has-access-token.guard protecting lazy module
+- ErrorInterceptor handles 404
+- Styles using BEM methodology
+
+
