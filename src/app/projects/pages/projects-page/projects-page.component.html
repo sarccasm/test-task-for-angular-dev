@@ -1,0 +1,41 @@
+<div class="projects-page">
+  <div class="projects-page__header">
+    <h1 class="projects-page__title">
+      {{ 'Repositories of' | addUsername: githubUsername }}
+    </h1>
+  </div>
+
+  <div class="projects-page__content">
+    <div *ngIf="isLoading" class="projects-page__loader">Loading repositories...</div>
+
+    <div *ngIf="error" class="projects-page__error">
+      {{ error }}
+    </div>
+
+    <div *ngIf="!isLoading && !error" class="projects-page__list">
+      <div *ngFor="let repo of repos" class="projects-page__item">
+        <div class="projects-page__item-name">
+          <a class="projects-page__item-link" [href]="repo.html_url" target="_blank" rel="noopener noreferrer">
+            {{ repo.name }}
+          </a>
+        </div>
+
+        <div class="projects-page__item-desc">
+          {{ repo.description || 'No description' }}
+        </div>
+
+        <div class="projects-page__item-meta">
+          <span class="projects-page__item-meta-field"> ⭐ {{ repo.stargazers_count }} </span>
+          <span class="projects-page__item-meta-field"> 🍴 {{ repo.forks_count }} </span>
+          <span class="projects-page__item-meta-field" *ngIf="repo.language">
+            {{ repo.language }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<pre>{{ weather | json }}</pre>
